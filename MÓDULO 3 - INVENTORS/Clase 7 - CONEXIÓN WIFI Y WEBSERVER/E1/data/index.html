@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LED CONTROL | >Codeliners_</title>
+</head>
+
+<body>
+    <div>
+        <h1>ESP32 - PANEL DE CONTROL</h1>
+        <br>
+        <div>
+            <h3>LED 1</h3>
+            <button onclick="turnOn1()">&nbsp;On&nbsp;</button>
+            <button onclick="turnOff1()">&nbsp;Off&nbsp;</button>
+        </div>
+        <div>
+            <h3>LED 2</h3>
+            <button onclick="turnOn2()">&nbsp;On&nbsp;</button>
+            <button onclick="turnOff2()">&nbsp;Off&nbsp;</button>
+        </div>
+        <div>
+            <h3>LED 3</h3>
+            <button onclick="turnOn3()">&nbsp;On&nbsp;</button>
+            <button onclick="turnOff3()">&nbsp;Off&nbsp;</button>
+        </div>
+    </div>
+</body>
+<script>
+    let socketConnection = new WebSocket('ws://' + location.hostname + ':81/');
+
+    const turnOn1 = () => {
+        socketConnection.send("LedOn1");
+    };
+
+    const turnOff1 = () => {
+        socketConnection.send("LedOff1");
+    };
+
+    const turnOn2 = () => {
+        socketConnection.send("LedOn2");
+    };
+
+    const turnOff2 = () => {
+        socketConnection.send("LedOff2");
+    };
+
+    const turnOn3 = () => {
+        socketConnection.send("LedOn3");
+    };
+
+    const turnOff3 = () => {
+        socketConnection.send("LedOff3");
+    };
+</script>
+
+</html>
